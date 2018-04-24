@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block conteudo %}
+<div class = "col-md-4 col-md-offset-3"></br>
+    <h2>Cadastrar Estoque</h2></br>
+    <form action = "{{url_for('inserir_estoques')}}" method = "post">
+        <div class="form-group">
+            <label for= 'cQuantidate'>Quantidade </label>
+            <input type="qtde" class="form-control" name="tQuantidade" id="cQuantidate" value="{{msg_qtde}}"/>
+        </div>
+    <div class="form-group">
+        <h6 for="cProd">Produtos</h6>
+        <select class="form-control" id="cProd" name = "tProd">
+        {% for prods in prods %}
+          {% if id_prods_selecionada == prods.id %}
+            <option selected value="{{prods.id}}">
+              {{prods.nome}}
+            </option>
+            {% else %}
+            <option value="{{prods.id}}">
+              {{prods.nome}}
+            </option>
+          {% endif %}
+        {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+</div>
+{% endblock %}

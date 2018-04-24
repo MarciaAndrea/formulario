@@ -1,0 +1,38 @@
+{% extends "layout.html" %} {% block conteudo %}
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Editar</td>
+                <td>Excluir</td>
+                <td>Código</td>
+                <td>Nome</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in categs %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('editar_categorias', id = categoria.id )}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a  href="{{ url_for('deletar_categoria', id = categoria.id )}}">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+                <td>
+                    {{categoria.id}}
+                </td>
+                <td>
+                    {{categoria.nome}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

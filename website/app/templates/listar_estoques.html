@@ -1,0 +1,42 @@
+{% extends "layout.html" %} {% block conteudo %}
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Editar</td>
+                <td>Excluir</td>
+                <td>Código</td>
+                <td>Quantidade</td>
+                <td>Produto</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estoque in estoqs %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('editar_estoques', id = estoque.id )}}">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a  href="{{ url_for('deletar_estoque', id = estoque.id )}}">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
+                <td>
+                    {{estoque.id}}
+                </td>
+                <td>
+                    {{estoque.qtde}}
+                </td>
+                <td>
+                    {{estoque.id_prod}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

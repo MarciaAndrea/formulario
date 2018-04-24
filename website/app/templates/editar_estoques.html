@@ -1,0 +1,16 @@
+{% extends "layout.html" %} {% block conteudo %}
+<div class = "col-md-4 col-md-offset-3"></br>
+  <h2>Editar Estoque</h2>
+  <form action="{{url_for('editar_estoques', id = estoque_selecionada.id)}}" method="post">
+    <div class="form-group">
+      <label for="id">Código</label>
+      <input type="text" class="form-control" id="id" value="{{estoque_selecionada.id}}" name="id" disabled>
+    </div>
+    <div class="form-group">
+      <label for='cQuantidate'>Quantidade</label>
+      <input type="text" class="form-control" id="nome" name="tQuantidade" value="{{estoque_selecionada.qtde}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}
